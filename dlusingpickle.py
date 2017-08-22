@@ -3,6 +3,8 @@ import tensorflow as tf
 #from tensorflow.examples.tutorials.mnist import input_data
 import pickle
 import numpy as np
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 train_x,train_y,test_x,test_y = create_feature_sets_and_labels('pos.txt','neg.txt')
 

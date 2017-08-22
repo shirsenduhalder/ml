@@ -2,6 +2,8 @@ import nltk
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 import pickle
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import numpy as np 
 import pandas as pd 
 import tensorflow as tf
@@ -60,7 +62,7 @@ create_lexicon('train_set.csv')
 def convert_to_vec(fin,fout,lexicon_pickle):
 	with open(lexicon_pickle,'rb') as f:
 		lexicon = pickle.load(f)
-	outfile = open(fout.'a')
+	outfile = open(fout,'a')
 	with open(fin,buffering=20000,encoding='latin-1') as f:
 		counter = 0
 		for line in f:
@@ -81,7 +83,7 @@ def convert_to_vec(fin,fout,lexicon_pickle):
 			outfile.write(outline)
 		print(counter)
 
-convert_to_vec('test_set.csv','processed_test_set.csv','lexicon_pickle.pickle')
+convert_to_vec('test_set.csv','processed_test_set.csv','lexicon_pickle')
 
 def shuffle_data(fin):
 	df = pd.read_csv(fin, error_bad_lines=False)
